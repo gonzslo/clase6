@@ -1,65 +1,104 @@
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Clase 6  </title>
-        <style>
-            body {
-                font-family: Helvetica, Arial, sans-serif;
-				color: hotpink
-            }
-			table {
-			    border-collapse: collapse;
-				text-align:left;
-			}
-			
-			td {
-			    border:1px solid black;
-                padding:1rem
-            }			
-        </style>
-    </head>
-    <body>
-        <h1>Electivos Sofía Romo</h1>
-        <table>
-		    <thead>
-			    <tr>
-				    <th>Asignatura</th>
-					<th>Grupo</th>
-					<th>Enfoque</th>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>
-        <script>
-		
-		    const t = document.querySelector("tbody");
-			
-            const URL = "https://api.myjson.online/v1/records/be377b99-af1f-499a-8fa4-99475269aea8"; 
-            // Final
-			
-			fetch(URL)
-                .then((respuesta) => {
-                    if (!respuesta.ok) {
-                        throw new Error("Error HTTP: " + respuesta.
-						    status);
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clase 6</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f6fb;
+            color: #0a3d62;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 70%;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        thead {
+            background-color: #1e90ff;
+            color: white;
+        }
+
+        th {
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #d6eaf8;
+            text-align: left;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f9ff;
+        }
+
+        tbody tr:hover {
+            background-color: #d6eaf8;
+            transition: 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Electivos Sofía Romo</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Asignatura</th>
+                <th>Grupo</th>
+                <th>Enfoque</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const t = document.querySelector("tbody");
+
+        const URL = "https://api.myjson.online/v1/records/be377b99-af1f-499a-8fa4-99475269aea8";
+
+        fetch(URL)
+            .then((respuesta) => {
+                if (!respuesta.ok) {
+                    throw new Error("Error HTTP: " + respuesta.status);
+                }
+                return respuesta.json();
+            })
+            .then((datos) => {
+                var trabajo = datos.data;
+
+                trabajo.forEach((x) => {
+                    if (x.ok == 1) {
+                        t.innerHTML += `
+                            <tr>
+                                <td>${x.name}</td>
+                                <td>${x.group}</td>
+                                <td>${x.focus}</td>
+                            </tr>
+                        `;
                     }
-                    console.log("Respuesta recibida:", respuesta);
-                    return respuesta.json();
-                })
-                .then((datos) => {
-                    var trabajo = datos.data;
-                    console.log("Datos recibidos:", trabajo);
-                    trabajo.forEach((x) => {
-                        if (x.ok == 1){
-                             t.innerHTML += `<tr><td>${x.name}</td><td>${x.group}</td><td>${x.focus}</td></tr>`;
-                        }
-                    });
-                })
-                .catch((error) => {
-                    console.error("Algo salió mal:", error);
                 });
-	    </script>
-    </body>
+            })
+            .catch((error) => {
+                console.error("Algo salió mal:", error);
+            });
+    </script>
+</body>
 </html>
