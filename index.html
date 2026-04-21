@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<!-- saved from url=(0034)ashgdasj/ -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Un fetch</title>
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Clase 6  </title>
         <style>
             body {
                 font-family: Helvetica, Arial, sans-serif;
@@ -19,9 +19,9 @@
                 padding:1rem
             }			
         </style>
-    <link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style></head>
+    </head>
     <body>
-        <h1>Electivos</h1>
+        <h1>Electivos Sofía Romo</h1>
         <table>
 		    <thead>
 			    <tr>
@@ -30,13 +30,14 @@
 					<th>Enfoque</th>
 				</tr>
 			</thead>
-			<tbody><tr><td>Design sketching. Bocetaje para Diseñadores Industriales</td><td>Morfología</td><td>Representación y Bocetaje (Sketching)</td></tr><tr><td>Diseño de ediciones experimentales</td><td>Morfología</td><td>Composición Editorial y Tipográfica</td></tr><tr><td>Educación tipográfica</td><td>Comunicación y Gestión del Diseño</td><td>Teoría y Crítica Cultural</td></tr><tr><td>Oficio digital</td><td>Ciencia y Tecnología</td><td>Post-producción y Medios Digitales</td></tr><tr><td>Modelamiento y representación digital</td><td>Ciencia y Tecnología</td><td>Modelado y Simulación Digital</td></tr><tr><td>Diseño de interacción y experiencia</td><td>Comunicación y Gestión del Diseño</td><td>Diseño de Servicios y Experiencia</td></tr><tr><td>Diseño editorial y publicación</td><td>Comunicación y Gestión del Diseño</td><td>Gestión de Publicaciones</td></tr><tr><td>Diseño y visualización de información</td><td>Comunicación y Gestión del Diseño</td><td>Comunicación Visual Estratégica</td></tr></tbody>
+			<tbody></tbody>
 		</table>
         <script>
 		
 		    const t = document.querySelector("tbody");
 			
-            const URL = "https://myjson.online/api/quick/fea74b1a-42d3-4773-bfd7-2387ac25059c";
+            const URL = "https://api.myjson.online/v1/records/be377b99-af1f-499a-8fa4-99475269aea8"; 
+            // Final
 			
 			fetch(URL)
                 .then((respuesta) => {
@@ -60,5 +61,5 @@
                     console.error("Algo salió mal:", error);
                 });
 	    </script>
-    
-</body></html>
+    </body>
+</html>
